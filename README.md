@@ -5,7 +5,7 @@ A Django-based web application that allows users to search, view, and book hotel
 ## 📸 Screenshots
 
 ### Home Page
-![Home Page](https://github.com/Pratik-2805/Oyo/blob/main/show/1.png)
+![Home Page (Without login)](https://github.com/Pratik-2805/Oyo/blob/main/show/1.png) | ![Home Page (With login)](https://github.com/Pratik-2805/Oyo/blob/main/show/2.png)
 
 ### Hotel Listings
 ![Hotel Listings](assets/images/hotel-listings.png)
