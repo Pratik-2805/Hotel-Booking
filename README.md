@@ -13,18 +13,6 @@ A Django-based web application that allows users to search, view, and book hotel
 ### Profile
 ![Profile (Without login)](https://github.com/Pratik-2805/Oyo/blob/main/show/6.png)
 
-### Booking Process
-<p align="center">
-  <img src="https://github.com/Pratik-2805/Oyo/blob/main/show/6.png" alt="Booking Process" width="600"/>
-</p>
-
-### User Dashboard
-| Profile Page | Booking History |
-|:-------------------------:|:-------------------------:|
-|![Profile](assets/images/profile.png) | ![Bookings](assets/images/bookings.png)|
-
-## 🌟 Features
-[... rest of your README content ...]
 
 ## 🌟 Features
 
