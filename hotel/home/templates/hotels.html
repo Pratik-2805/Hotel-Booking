@@ -1,0 +1,45 @@
+{% extends "base.html"%}
+
+{% block start%}
+
+<div class="bg-gray-100 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for hotels_obj in hotels_objs %}
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                {{hotels_objs.images.first.image}}
+                <img class="w-full h-48 object-cover" src="/media/{{hotels_obj.images.first.image}}" alt="{{hotels_objs.name}}"/>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900">{{hotels_obj.hotel_name}}</h3>
+                    <p class="mt-2 text-gray-600">{{hotels_obj.description|truncatechars:120}}</p>                    
+                    <p class="mt-2 text-gray-600">
+                        {% for amenitie in hotels_obj.amenities.all %}
+                            {% if forloop.counter <= 3 %}
+                                <b>{{amenitie.amenity_name}}</b>{% if not forloop.last %}, {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if hotels_obj.amenities.count > 3 %}
+                            <span id="more-amenities-{{forloop.counter}}" class="hidden">
+                                {% for amenitie in hotels_obj.amenities.all %}
+                                    {% if forloop.counter > 3 %}
+                                        <b>{{amenitie.amenity_name}}</b>{% if not forloop.last %}, {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            </span>
+                            <a href="javascript:void(0);" onclick="document.getElementById('more-amenities-{{forloop.counter}}').classList.toggle('hidden'); this.style.display='none';" class="text-blue-600">...</a>
+                        {% endif %}
+                    </p>
+                    <div class="mt-2">
+                        <span class="text-blue-600 font-bold text-xl">${{hotels_obj.hotel_price}}</span>
+                        <span class="text-gray-500">/night</span>
+                    </div>
+                    <p class="mt-2 text-gray-600"><span class="text-l font-semibold text-gray-900">Room count: </span>{{hotels_obj.room_count}}</p>
+                    <a href="/hotel-detail/{{hotels_obj.uid}}" class="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300 text-center block">Book Now</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

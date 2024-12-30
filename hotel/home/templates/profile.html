@@ -1,0 +1,39 @@
+<!-- Start Generation Here -->
+{% extends "base.html" %}
+
+{% block start %}
+<div class="bg-gray-100 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Profile Page</h2>
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Booking Details</h3>
+            <table class="min-w-full mt-4 border-collapse">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="px-6 py-3 text-left text-gray-700 font-medium">Hotel Name</th>
+                        <th class="px-6 py-3 text-left text-gray-700 font-medium">Check-in Date</th>
+                        <th class="px-6 py-3 text-left text-gray-700 font-medium">Check-out Date</th>
+                        <th class="px-6 py-3 text-left text-gray-700 font-medium">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in bookings %}
+                    <tr class="hover:bg-gray-100 transition duration-200">
+                        <td class="border px-6 py-4">{{ booking.hotel.hotel_name }}</td>
+                        <td class="border px-6 py-4">{{ booking.start_date }}</td>
+                        <td class="border px-6 py-4">{{ booking.end_date }}</td>
+                        <td class="border px-6 py-4 font-semibold text-blue-600">${{ booking.hotel.hotel_price }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4" class="border px-6 py-4 text-center text-gray-500">No bookings found.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- End Generation Here -->
+
+{% endblock %}
